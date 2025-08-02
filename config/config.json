@@ -14,18 +14,19 @@
       "dialect": "mysql"
     },
     "production": {
-      "username": "TON_USER_RENDER",
-      "password": "TON_MDP_RENDER",
-      "database": "TON_DB_RENDER",
-      "host": "TON_HOST_RENDER",
-      "port": 5432,
-      "dialect": "postgres",
-      "dialectOptions": {
-        "ssl": {
-          "require": true,
-          "rejectUnauthorized": false
-        }
-      }
+  "username": "riderfamily_user",
+  "password": "6j2tC4jdopDTT1MadlgF5u0HUVrNbXDg",
+  "database": "riderfamily",
+  "host": "dpg-d2712fvdiees73b94lb0-a",
+  "port": 5432,
+  "dialect": "postgres",
+  "dialectOptions": {
+    "ssl": {
+      "require": true,
+      "rejectUnauthorized": false
     }
+  }
+}
+
   }
   
