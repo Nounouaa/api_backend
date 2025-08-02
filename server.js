@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const { Admin } = db; // récupère directement depuis db
 require('dotenv').config();
 
+
 const PORT = process.env.PORT || 3030;
 
 // Fonction pour créer l'admin par défaut si inexistant
