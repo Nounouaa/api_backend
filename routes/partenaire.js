@@ -15,6 +15,7 @@ const SALT_ROUNDS = 10;
  * @route POST /partenaires/login
  * @description Authentifie un partenaire avec vérification bcrypt
  */
+
 router.post('/login', partnerValidators.login, async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
