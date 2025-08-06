@@ -3,21 +3,37 @@ const cors = require('cors');
 const path = require('path');
 
 const app = express();
-// Autoriser les requêtes cross-origin pour les images
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-  });
-app.use(cors());
+
+// Configuration CORS
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Servir les fichiers statiques
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-// Tes routes API
-app.use('/api/members', require('./routes/members'));
-app.use('/api/partenaires', require('./routes/partenaire'));
-app.use('/api/clubs', require('./routes/club'));
-app.use('/api/admins', require('./routes/admin'));
+
+// Importation des routeurs
+const membersRouter = require('./routes/members');
+const partenaireRouter = require('./routes/partenaire');
+const clubRouter = require('./routes/club');
+const adminRouter = require('./routes/admin');
+
+// Configuration des routes
+app.use('/api/members', membersRouter);
+app.use('/api/partenaires', partenaireRouter);
+app.use('/api/clubs', clubRouter);
+app.use('/api/admins', adminRouter);
+
+// Gestion des erreurs
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
 
 module.exports = app;
