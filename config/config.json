@@ -14,10 +14,10 @@
       "dialect": "mysql"
     },
     "production": {
-  "username": "riderfamily_user",
-  "password": "6j2tC4jdopDTT1MadlgF5u0HUVrNbXDg",
-  "database": "riderfamily",
-  "host": "dpg-d2712fvdiees73b94lb0-a",
+  "username": "family",
+  "password": "TMhnsOf7W23MyhegoEpCD4wKSha68Hys",
+  "database": "family_hsif",
+  "host": "dpg-d29rv6emcj7s73cn0a0g-a",
   "port": 5432,
   "dialect": "postgres",
   "dialectOptions": {
